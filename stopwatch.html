@@ -6,34 +6,52 @@
 
     <title>StopWatch</title>
     <link rel="stylesheet" href="stopwatch.css" />
+    <!--used to link css file-->
     <link
       rel="icon"
       href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏳</text></svg>"
     />
+    <!--used to add timer icon to the title of the webpage-->
   </head>
   <body class="bg">
     <h2 id="h2">Stop - Watch</h2>
+    <!--Main Heading-->
     <div class="stopwatch">
+      <!-- Container for the stopwatch display and buttons -->
       <h1 id="dis-time">00:00:00</h1>
+      <!-- Display for the stopwatch time -->
+
       <div class="buttons">
+        <!-- Container for the stopwatch buttons -->
+        <!-- Image for the stop button -->
         <img
           src="images/stop.png"
           alt="stop"
           height="60px"
           onclick="watchStop()"
         />
+        <!-- Image for the start button -->
         <img src="images/start.png" alt="start" onclick="watchStart()" />
+
+        <!-- Image for the reset button -->
 
         <img src="images/retry1.png" alt="restart" onclick="watchReset()" />
       </div>
     </div>
     <script>
+      /*initializing*/
       let [seconds, minutes, hours] = [0, 0, 0];
+      /* Getting the displayTime element by its id */
       let displayTime = document.getElementById("dis-time");
+      /*Initializing the timer variable to null */
       let timer = null;
-
+      /*Function for the stopwatch display*/
       function stopwatch() {
+        /*Increasing the seconds variable*/
         seconds++;
+        /*If the seconds variable is equal to 60
+        Reset the seconds variable to 0 and Increase the minutes variable
+         */
         if (seconds == 60) {
           seconds = 0;
           minutes++;
@@ -42,6 +60,7 @@
             hours++;
           }
         }
+        /*Adding a leading zero to the hours,minutes,seconds  variable if it is less than 10 */
         let h = hours < 10 ? "0" + hours : hours;
         let m = minutes < 10 ? "0" + minutes : minutes;
         let s = seconds < 10 ? "0" + seconds : seconds;
@@ -49,17 +68,28 @@
         displayTime.innerHTML = h + ":" + m + ":" + s;
       }
 
+      /*Function for the start button*/
       function watchStart() {
+        /*If the timer is not null,Clear the time and Set the timer to call the stopwatch function every 1000 milliseconds (1 second)
+        
+        */
         if (timer != null) {
           clearInterval(timer);
         }
         timer = setInterval(stopwatch, 1000);
       }
 
+      /*Function for the stop button*/
       function watchStop() {
         clearInterval(timer);
       }
 
+      /*Function for the reset button*/
+      /*1.Clear the timer 
+      2.Reset the seconds, minutes, and hours variables to 0
+      3.Reset the stopwatch display
+      4.Set the timer to call the stopwatch function every 1000 milliseconds (1 second)
+      */
       function watchReset() {
         clearInterval(timer);
         [seconds, minutes, hours] = [0, 0, 0];
