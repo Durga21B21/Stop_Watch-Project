@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
+
+.bg {
+  background-color: rgb(78, 212, 212);
+  font-family: "Creepster", system-ui;
+}
+.stopwatch {
+  width: 90%;
+  max-width: 600px;
+  background-image: url(images/background.jpg);
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 70px 0;
+  color: #fff;
+  margin: 80px auto 0;
+  box-shadow: 0 10px 10px rgba(14, 13, 13, 0.8);
+  border-style: double;
+  border-color: black;
+}
+.stopwatch h1 {
+  font-size: 40px;
+  font-weight: 100;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.buttons img {
+  margin: 0 30px;
+  cursor: pointer;
+}
+.buttons img:nth-child(2) {
+  width: 90px;
+}
+#dis-time {
+  color: black;
+}
+#h2 {
+  font-weight: 900;
+
+  color: #070707;
+  text-shadow: 0 0 0px #fff, 0 0 50px #f2c94c;
+
+  text-align: center;
+  margin-top: 30px;
+}
